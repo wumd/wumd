@@ -1,0 +1,27 @@
+<mapper namespace="com.lagou.dao.IUserDao">
+<!--    sql语句-->
+<!--  查询所有 -->
+    <select id="findAll" resultType="com.lagou.pojo.User">
+        select * from user
+    </select>
+
+    <select id="findOne" resultType="com.lagou.pojo.User" paramType="com.lagou.pojo.User">
+        select * from user where id=#{id} and username=#{username}
+    </select>
+
+<!--    修改用户-->
+    <update id="update" paramType="com.lagou.pojo.User" resultType="Integer">
+        update user set id=#{id},username=#{username} where id=#{id}
+    </update>
+
+<!--    根据id删除用户-->
+    <delete id="delete" paramType="com.lagou.pojo.User">
+        delete from user where id=#{id}
+    </delete>
+
+<!--    新增一条数据-->
+    <insert id="insert" paramType="com.lagou.pojo.User">
+        insert into user(id,username) values(#{id},#{username})
+    </insert>
+
+</mapper>
